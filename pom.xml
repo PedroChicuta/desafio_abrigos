@@ -8,8 +8,8 @@
 
 	<properties>
 
-		<maven.compiler.sourcer>21</maven.compiler.sourcer>
-		<maven.compiler.target>21</maven.compiler.target>
+		<maven.compiler.sourcer>17</maven.compiler.sourcer>
+		<maven.compiler.target>17</maven.compiler.target>
 
 	</properties>
 

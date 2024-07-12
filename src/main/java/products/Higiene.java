@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import entities.Abrigo;
 import entities.CentroDeDistribuicao;
 import products.enums.ProdutoDeHigiene;
 
@@ -22,7 +23,10 @@ public class Higiene extends Item{
 		super(descricao, centroDeDistribuicao);
 		setProdutoDeHigiene(produtoDeHigiene);
 	}
-
+	public Higiene(String descricao , Abrigo abrigo, ProdutoDeHigiene produtoDeHigiene) {
+		super(descricao, abrigo);
+		setProdutoDeHigiene(produtoDeHigiene);
+	}
 	public ProdutoDeHigiene getProdutoDeHigiene() {
 		return ProdutoDeHigiene.valueOf(produtoDeHigiene);
 	}

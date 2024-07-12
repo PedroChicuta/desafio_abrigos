@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import entities.Abrigo;
 import entities.CentroDeDistribuicao;
 import products.enums.Tamanho;
 
@@ -26,7 +27,11 @@ public class Roupa extends Item{
 		Genero = genero;
 		setTamanho(tamanho);
 	}
-
+	public Roupa(String descricao, Abrigo abrigo, char genero, Tamanho tamanho) {
+		super(descricao, abrigo);
+		Genero = genero;
+		setTamanho(tamanho);
+	}
 	public char getGenero() {
 		return Genero;
 	}

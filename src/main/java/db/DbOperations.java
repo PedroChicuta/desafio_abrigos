@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import entities.Abrigo;
 import entities.CentroDeDistribuicao;
 import products.Alimento;
 import products.Higiene;
@@ -36,13 +37,13 @@ public class DbOperations {
 	 * db e construindo um arrayList
 	 */
 	
-	private Integer getAlimentoTableSize(Alimento item) {
+	private List<Alimento> getAlimentoTable(Alimento item) {
 		List<Alimento> itens = new ArrayList<>();
 		itens = em.createQuery("SELECT p FROM Alimento p", Alimento.class).getResultList();
-		return itens.size();
+		return itens;
 	}
 	public void addAlimento(Alimento produto) {
-		int tamanhoDaDb = getAlimentoTableSize(produto);
+		int tamanhoDaDb = getAlimentoTable(produto).size();
 		if (tamanhoDaDb >= 10) {
 			throw new IllegalArgumentException("Já existem 10 itens cadastrados");
 		} else {
@@ -54,13 +55,13 @@ public class DbOperations {
 	}
 
 	
-	private Integer getHigieneTableSize(Higiene item) {
+	private List<Higiene> getHigieneTable(Higiene item) {
 		List<Higiene> itens = new ArrayList<>();
 		itens = em.createQuery("SELECT h FROM Higiene h", Higiene.class).getResultList();
-		return itens.size();
+		return itens;
 	}
 	public void addHigiene(Higiene produto) {
-		int tamanhoDaDb = getHigieneTableSize(produto);
+		int tamanhoDaDb = getHigieneTable(produto).size();
 		if (tamanhoDaDb >= 10) {
 			throw new IllegalArgumentException("Já existem 10 itens cadastrados");
 		} else {
@@ -71,14 +72,14 @@ public class DbOperations {
 		return em.find(Higiene.class, n);
 	}
 
-	private Integer getRoupaTableSize(Roupa item) {
+	private List<Roupa> getRoupaTable(Roupa item) {
 		List<Roupa> itens = new ArrayList<>();
 		itens = em.createQuery("SELECT r FROM Roupa r", Roupa.class).getResultList();
-		return itens.size();
+		return itens;
 	}
 	
 	public void addRoupa(Roupa produto) {
-		int tamanhoDaDb = getRoupaTableSize(produto);
+		int tamanhoDaDb = getRoupaTable(produto).size();
 		if (tamanhoDaDb >= 10) {
 			throw new IllegalArgumentException("Já existem 10 itens cadastrados");
 		} else {
@@ -102,6 +103,11 @@ public class DbOperations {
 		em.getTransaction().commit();
 	}
 	
+	public void addAbrigo(Abrigo abrigo) {
+		em.getTransaction().begin();
+		em.persist(abrigo);
+		em.getTransaction().commit();
+	}
 	
 
 	public void deleteProduto(Item produto) {

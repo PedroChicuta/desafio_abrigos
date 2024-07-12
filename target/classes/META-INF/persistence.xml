@@ -3,10 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
-	<persistence-unit name="persistence-proj" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="proj" transaction-type="RESOURCE_LOCAL">
 		<properties>
 			<property name="jakarta.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/aulajpa2?useSSL=FALSE&amp;serverTimezone=UTC" />
+				value="jdbc:mysql://localhost:3306/desafio_abrigos?useSSL=FALSE&amp;serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="jakarta.persistence.jdbc.user" value="root" />

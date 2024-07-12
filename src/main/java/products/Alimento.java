@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import entities.Abrigo;
 import entities.CentroDeDistribuicao;
 import products.enums.UnidadesDeMedida;
 
@@ -27,6 +28,12 @@ public class Alimento extends Item {
 	
 	public Alimento(String descricao, CentroDeDistribuicao centroDeDistribuicao, Integer quantidade, UnidadesDeMedida unidadeDeMedida, LocalDate validade) {
 		super(descricao, centroDeDistribuicao);
+		this.quantidade = quantidade;
+		setUnidadeDeMedida(unidadeDeMedida);
+		this.validade = validade;
+	}
+	public Alimento(String descricao, Abrigo abrigo, Integer quantidade, UnidadesDeMedida unidadeDeMedida, LocalDate validade) {
+		super(descricao, abrigo);
 		this.quantidade = quantidade;
 		setUnidadeDeMedida(unidadeDeMedida);
 		this.validade = validade;
