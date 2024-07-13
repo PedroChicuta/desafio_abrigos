@@ -1,4 +1,4 @@
-package products;
+package entities.products;
 
 import java.io.Serializable;
 import java.util.Objects;

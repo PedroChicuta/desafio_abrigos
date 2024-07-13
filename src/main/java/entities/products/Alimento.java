@@ -1,12 +1,9 @@
-package products;
+package entities.products;
+
 
 import java.time.LocalDate;
 
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import entities.Abrigo;
@@ -16,6 +13,7 @@ import products.enums.UnidadesDeMedida;
 @Entity
 @Table(name = "alimentos")
 public class Alimento extends Item {
+	
 	private static final long serialVersionUID = 1L;
 	
 	private Integer quantidade;
