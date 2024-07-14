@@ -16,16 +16,26 @@ public class Abrigo {
 	private String endereco;
 	private String responsavel;
 	private String telefone;
+	@Override
+	public String toString() {
+		return "-> id=" + id + ", nome=" + nome + ", endereco=" + endereco + ", responsavel=" + responsavel
+				+ ", telefone=" + telefone + ", email=" + email + ", ocupacao=" + ocupacao + ", capacidadeMaxima="
+				+ capacidadeMaxima;
+	}
 	private String email;
 	private Integer ocupacao;
-	
-	public Abrigo(String nome, String endereco, String responsavel, String telefone, String email, Integer ocupacao) {
+	private Integer capacidadeMaxima;
+	public Abrigo() {
+		
+	}
+	public Abrigo(String nome, String endereco, String responsavel, String telefone, String email,Integer capacidadeMaxima, Integer ocupacao) {
 		super();
 		this.nome = nome;
 		this.endereco = endereco;
 		this.responsavel = responsavel;
 		this.telefone = telefone;
 		this.email = email;
+		this.setCapacidadeMaxima(capacidadeMaxima);
 		setOcupacao(ocupacao);
 	}
 	public String getNome() {
@@ -70,5 +80,10 @@ public class Abrigo {
 	public Integer getId() {
 		return id;
 	}
-	
+	public Integer getCapacidadeMaxima() {
+		return capacidadeMaxima;
+	}
+	public void setCapacidadeMaxima(Integer capacidadeMaxima) {
+		this.capacidadeMaxima = capacidadeMaxima;
+	}
 }

@@ -1,23 +1,14 @@
 package application;
 
-import java.time.LocalDate;
-
-
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
-import entities.Abrigo;
 import entities.CentroDeDistribuicao;
-import entities.products.Alimento;
-import entities.products.Higiene;
-import entities.products.Roupa;
+
 import operations.Centros;
+import operations.RegistroDeAbrigo;
 import operations.RegistroDeDoação;
-import products.enums.ProdutoDeHigiene;
-import products.enums.Tamanho;
-import products.enums.UnidadesDeMedida;
-import repositories.DbOperations;
+
 
 public class Main {
 	
@@ -53,7 +44,8 @@ public class Main {
 					registroDeDoação.menu(centros);
 					break;
 				case 2:
-					System.out.println(2);
+					RegistroDeAbrigo registroDeAbrigo = new RegistroDeAbrigo();
+					registroDeAbrigo.menu();
 					break;
 				case 3:
 					System.out.println(3);
