@@ -17,6 +17,9 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Centros centrosOp = new Centros();
 		List<CentroDeDistribuicao> centrosDeDistribuicao = centrosOp.findAllCentros();
+		if(centrosDeDistribuicao.size() == 0) {
+			centrosOp.createCentros();
+		}
 		CentroDeDistribuicao centro1 = centrosDeDistribuicao.get(0);
 		CentroDeDistribuicao centro2 = centrosDeDistribuicao.get(1);
 		CentroDeDistribuicao centro3 = centrosDeDistribuicao.get(2);
