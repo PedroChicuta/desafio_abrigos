@@ -1,9 +1,7 @@
 package entities.products;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 import entities.Abrigo;
@@ -25,6 +23,10 @@ public class Higiene extends Item{
 	}
 	public Higiene(String descricao , Abrigo abrigo, ProdutoDeHigiene produtoDeHigiene) {
 		super(descricao, abrigo);
+		setProdutoDeHigiene(produtoDeHigiene);
+	}
+	public Higiene(String descricao , ProdutoDeHigiene produtoDeHigiene) {
+		super(descricao);
 		setProdutoDeHigiene(produtoDeHigiene);
 	}
 	public ProdutoDeHigiene getProdutoDeHigiene() {

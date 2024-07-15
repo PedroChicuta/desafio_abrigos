@@ -1,18 +1,18 @@
 package application;
 
 import java.util.List;
+
 import java.util.Scanner;
 
+import csvOperations.RegistroViaCSV;
 import entities.CentroDeDistribuicao;
-
 import operations.Centros;
+import operations.OrdemDePedido;
 import operations.RegistroDeAbrigo;
 import operations.RegistroDeDoação;
 
 
 public class Main {
-	
-
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Centros centrosOp = new Centros();
@@ -26,8 +26,7 @@ public class Main {
 			System.out.println("1.Registro de doações");
 			System.out.println("2.Registro de abrigo");
 			System.out.println("3.Ordem de pedidos");
-			System.out.println("4.Checkout de Itens");
-			System.out.println("5.Transferencia de doações");
+			System.out.println("4.Registrar doação via CSV");
 			System.out.print("Digite uma opção(0 para sair):");
 			int op = scanner.nextInt();
 			if (op == 0) {
@@ -48,21 +47,19 @@ public class Main {
 					registroDeAbrigo.menu();
 					break;
 				case 3:
-					System.out.println(3);
+					OrdemDePedido ordemDePedido = new OrdemDePedido();
+					ordemDePedido.menu();
 					break;
 				case 4:
-					System.out.println(4);
-					break;
-				case 5:
-					System.out.println(5);
+					RegistroViaCSV registro = new RegistroViaCSV();
+					registro.Menu();
 					break;
 				default:
-					System.out.println("else");
-					break;
-				}
+					System.out.println("Opção inválida");				
+					}
 			}
 		}
-		
+		scanner.close();
 		System.out.println("end");
 	}
 

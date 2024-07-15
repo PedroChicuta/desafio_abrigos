@@ -28,7 +28,6 @@ public class RegistroDeDoação {
 		switch (op) {
 		case 1:
 			cadastrarItem(centroDeDistribuicao);
-			System.out.println("Alimento cadastrado com sucesso");
 			break;
 		case 2:
 			lerItens(centroDeDistribuicao);
@@ -124,6 +123,7 @@ public class RegistroDeDoação {
 			LocalDate validade = LocalDate.parse(data, fmt);
 			Alimento alimento = new Alimento(descricao, centro, quantidade, UnidadesDeMedida.valueOf(unidadeDeMedida), validade);
 			db.cadastrarAlimentoAoCentro(alimento);
+			System.out.println("Alimento cadastrado com sucesso");
 			break;
  		default:
 			break;
@@ -204,7 +204,7 @@ public class RegistroDeDoação {
 	
 	public void atualizarRoupa(Integer id) {
 		System.out.println("Propriedades que podem ser alteradas:");
-		System.out.println("1.Descricao \n2.Tamanho \nGênero ");
+		System.out.println("1.Descricao \n2.Tamanho \n3.Gênero ");
 		System.out.print("Opção:");
 		int op = sc.nextInt();
 		Roupa roupa = db.findRoupa(id);

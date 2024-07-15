@@ -31,7 +31,9 @@ public class CentroDeDistribuicao implements Serializable{
 	public String getNome() {
 		return nome;
 	}
-
+	public Integer getId() {
+		return id;
+	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}

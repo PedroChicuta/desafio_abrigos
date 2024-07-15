@@ -1,9 +1,7 @@
 package entities.products;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 import entities.Abrigo;
@@ -21,7 +19,11 @@ public class Roupa extends Item{
 	
 	public Roupa() {
 	}
-	
+	public Roupa(String descricao, char genero, Tamanho tamanho) {
+		super(descricao);
+		Genero = genero;
+		setTamanho(tamanho);
+	}
 	public Roupa(String descricao, CentroDeDistribuicao centroDeDistribuicao, char genero, Tamanho tamanho) {
 		super(descricao, centroDeDistribuicao);
 		Genero = genero;

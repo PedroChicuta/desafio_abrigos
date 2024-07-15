@@ -36,6 +36,12 @@ public class Alimento extends Item {
 		setUnidadeDeMedida(unidadeDeMedida);
 		this.validade = validade;
 	}
+	public Alimento(String descricao, Integer quantidade, UnidadesDeMedida unidadeDeMedida, LocalDate validade) {
+		super(descricao);
+		this.quantidade = quantidade;
+		setUnidadeDeMedida(unidadeDeMedida);
+		this.validade = validade;
+	}
 	
 	public Integer getQuantidade() {
 		return quantidade;
@@ -66,4 +72,5 @@ public class Alimento extends Item {
 		return "Alimento [quantidade=" + quantidade + ", UnidadeDeMedida=" + unidadeDeMedida + ", validade=" + validade
 				+", descricao = "+ super.getDescricacao()+ "]";
 	}
+
 }

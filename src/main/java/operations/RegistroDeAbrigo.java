@@ -1,21 +1,11 @@
 package operations;
 
+import java.util.List;
 import java.util.Scanner;
 
 import entities.Abrigo;
 import repositories.DbOperations;
 
-/*
- * Registro de Abrigos
-Registro de abrigos aptos a receber as doações: cadastro, leitura, edição e exclusão de
-abrigos.
-Deverá ser armazenado o nome, endereço, responsável, telefone e email de contato,
-capacidade e ocupação (%) de cada abrigo.
-Todos os dados inseridos devem passar por uma validação.
- Ao buscar um abrigo, além dos dados acima, deve-se listar a quantidade de cada item
-recebido pelo abrigo.
-
- * */
 public class RegistroDeAbrigo {
 	Scanner sc = new Scanner(System.in);
 	DbOperations db = new DbOperations();
@@ -60,6 +50,7 @@ public class RegistroDeAbrigo {
 				+ "\n6.capacidade maxima \n7.ocupação (%)");
 		System.out.print("Opção:");
 		Integer op = sc.nextInt();
+		sc.nextLine();
 		switch (op) {
 		case 1:
 			System.out.println("Novo nome:");
@@ -105,7 +96,23 @@ public class RegistroDeAbrigo {
 
 	private void ler() {
 		System.out.println("---Ler Abrigos---");
-		db.getAbrigoTable().forEach(p -> System.out.println(p));
+		System.out.print("Id do abrigo que será procurado:");
+		int id = sc.nextInt();
+		List<Abrigo> abrigos= db.getAbrigoTable();
+		Abrigo abrigo;
+		abrigos.removeIf(p->(p.getId() != id));
+		if(abrigos.size() == 0){
+			throw new Error("Não existe abrigo com esse id");
+		}
+		else {
+			abrigo = abrigos.get(0);
+			System.out.println(abrigo);
+			int alimentosNoAbrigo = db.findAlimentoByAbrigo(abrigo).size();
+			int prodHigieneNoAbrigo = db.findHigieneByAbrigo(abrigo).size();
+			int roupasNoAbrigo = db.findRoupaByAbrigo(abrigo).size();
+			System.out.printf("Total de alimentos no abrigo:%d \nTotal de Produtos de Higiene no abrigo: %d \nTotal de roupas no abrigo:%d\n",
+					alimentosNoAbrigo, prodHigieneNoAbrigo,roupasNoAbrigo);
+		}
 	}
 
 	private void cadastrar() {

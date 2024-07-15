@@ -28,13 +28,15 @@ public abstract class Item implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "abrigo_id")
 	private Abrigo abrigo;
-	
 	public Item() {
+		
+	}
+	public Item(String descricacao) {
+		this.descricacao = descricacao;
 	}
 	public Item(String descricacao, CentroDeDistribuicao centroDeDistribuicao) {
 		this.setCentroDeDistribuicao(centroDeDistribuicao);
 		this.descricacao = descricacao;
-
 	}
 	public Item(String descricacao, Abrigo abrigo) {
 		this.setAbrigo(abrigo);
@@ -59,6 +61,9 @@ public abstract class Item implements Serializable{
 	public void setAbrigo(Abrigo abrigo) {
 		centroDeDistribuicao = null;
 		this.abrigo = abrigo;
+	}
+	public Abrigo getAbrigo() {
+		return abrigo;
 	}
 	@Override
 	public int hashCode() {
